@@ -10,6 +10,6 @@ export const register = async (formData) => {
 }
 
 export const login = async (formData) => {
-    let res = await API.post("/users/login" , formData);
-    return res
+    let res = await API.post('/users/login' , formData);
+    return res.data
 }

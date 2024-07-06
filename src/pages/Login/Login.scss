@@ -1,0 +1,83 @@
+.login{
+    .login-parent{
+        display: flex;
+        gap: 30px;
+        align-items: baseline;
+        justify-content: center;
+        padding-top: 40px;
+        .login-box{
+            max-width: 500px;
+            background-color: #F9F9F9;
+            border-radius: 16px;
+            padding: 60px;
+            h2.login-title{
+                // width: 240px;
+                height: 40px;
+                top: 310px;
+                left: 720px;
+                gap: 0px;
+                opacity: 0px;
+                margin-bottom: 16px;
+                text-align: center;
+            }
+            p.login-text{
+                // width: 380px;
+                height: 44px;
+                top: 366px;
+                left: 650px;
+                gap: 0px;
+                text-align: center;
+                opacity: 0px;
+                color: #191919;
+    
+            }
+            div{
+                label{
+                    p.login-inp-text{
+                        color: #A5A5A5;
+                        font-size: 14px;
+                        font-weight: 400;
+                        line-height: 18px;
+                        text-align: left;
+                        margin: 20px 0 8px 28px;
+                        
+                    }
+                    input.login-inp{
+                        display: block;
+                        margin: auto;
+                        color: #A5A5A5;
+                        background: #FFFFFF;
+                        padding-left: 5px;
+                        border: 1px solid #F0F0F0;
+                        width: 320px;
+                        height: 48px;
+                        top: 26px;
+                        gap: 0px;
+                        border-radius: 6px ;
+                        border: 1px;
+                        opacity: 0px;
+                    }
+                    
+                }
+            }
+
+            p.footer-login-text{
+                color: #191919;
+                width: 320px;
+                height: 54px; 
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 18px;
+                text-align: center;
+                opacity: 0.4 !important;    
+                margin-top: 12px;
+            }
+        }
+    }
+}
+.error-span{
+    color: red;
+    font-size: 12px;
+    display: block;
+    margin-top: 10px;
+}
