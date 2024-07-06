@@ -4,9 +4,12 @@ import "./Signup.scss"
 import { CloseOutlined } from '@ant-design/icons'
 import { register } from '../../server/authServer'
 import { setUser } from '../../redux/reduxStore/authSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { failureLoader, startLoader, successLoader } from '../../redux/reduxStore/loaderSLice'
 
 const Signup = () => {
     const [errorText , setErrorText ] = useState("");
+    const {isLoading } = useSelector(state => state.loaderSlice)
     
     const [formValues , setFormValues ] = useState({
         telephone: null,
@@ -14,13 +17,17 @@ const Signup = () => {
         name: null, 
         password: null
     })
+
+    const dispatch = useDispatch()
     
 
     const handleSubmit = async (e ) => {
         e.preventDefault();
+        dispatch(startLoader())
         try {
             let {telephone , email , name , password } = formValues;
             if(!telephone || !email || !name  || !password) {
+                dispatch(failureLoader())
                 return setErrorText("Pleas fill all values")
             }
 
@@ -36,6 +43,7 @@ const Signup = () => {
               }
 
             if(telephone == "" || email == "" || name == "" |password == ""){
+                dispatch(failureLoader())
                 return setErrorText("Pleas fill all values")
             }
 
@@ -44,10 +52,11 @@ const Signup = () => {
             localStorage.setItem("token" , token);
             localStorage.setItem("myId" , user._id);
             setUser(user)
-            setErrorText("")
+            setErrorText("");
+            dispatch(successLoader())
         } catch (error) {
-            console.log(error);
             setErrorText(error.response.data.message)
+            dispatch(failureLoader())
         }
     }
 
@@ -88,7 +97,9 @@ const Signup = () => {
                     </label>
                     <span className='error-span'>{errorText}</span>
                     <button className="sign-btn">
-                        Sign Up
+                        {
+                            isLoading ? "Loading..." : "Sign Up"
+                        }
                     </button>
                 </form>
             </div>

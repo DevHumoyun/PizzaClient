@@ -81,3 +81,21 @@
     display: block;
     margin-top: 10px;
 }
+.to-home{
+    font-size: 30px;
+    color: #F9F9F9 ;
+    padding: 0;
+}
+
+@media only screen and (max-width:410px) {
+
+    .login-inp-text{
+        margin-left: 10px !important;
+    }
+    .phone-input{
+        margin-left: 10px !important;
+    }
+    .to-home{
+        display: none;
+    }
+}

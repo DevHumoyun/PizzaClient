@@ -5,6 +5,8 @@ import 'react-phone-input-2/lib/style.css';
 import { login } from '../../server/authServer';
 import { useDispatch, useSelector } from 'react-redux';
 import { failureLoader, startLoader, successLoader } from '../../redux/reduxStore/loaderSLice';
+import { Link } from 'react-router-dom';
+import { CloseOutlined } from '@ant-design/icons';
 
 const Login = () => {
 
@@ -47,15 +49,15 @@ const Login = () => {
     <div className='login'>
         <div className="login-parent">
             <div className="login-box">
-                <h2 className="login-title">Login</h2>
-                <p className="login-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, voluptatem!</p>
+                <h2 className="login-title">Вход в аккаунт</h2>
+                <p className="login-text">Сможете быстро оформлять заказы, использовать бонусы</p>
 
                 <div >
                     <label htmlFor="login-tel">
                         <p className="login-inp-text">Telephone</p>
                         {/* <input type="tel" id='login-tel' className='login-inp' /> */}
                         <PhoneInput
-                            
+                            className={'phone-input'}
                             country={'uz'}
                             value={phone}
                             onChange={handlePhoneChange}
@@ -96,11 +98,12 @@ const Login = () => {
                     </label>
 
                     <span className='error-span'>{wareError}</span>
-                    <button  onClick={handleLogin} className="sign-btn">{isLoading ? "Loading..." : "Login"}</button>
+                    <button  onClick={handleLogin} className="sign-btn">{isLoading ? "Loading..." : "Войти"}</button>
                 </div>
 
-                <p className="footer-login-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate est quos soluta quis qui nostrum, quaerat maiores magni eius eveniet.</p>
+                <p className="footer-login-text">Продолжая, вы соглашаетесь со сбором и обработкой персональных данных и пользовательским соглашением</p>
             </div>
+            <Link className='to-home' to={'/'} > <CloseOutlined /></Link >
         </div>
       
     </div>

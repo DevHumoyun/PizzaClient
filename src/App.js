@@ -16,9 +16,9 @@ function App() {
         <Route path='/signup2' element={<Signup2 />} />
         <Route path='/login' element={<Login />} />
       </Routes>
-      <Navbar/>
+      {/* <Navbar/> */}
       {/* <Header/> */}
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   );
 }
