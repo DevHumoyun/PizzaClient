@@ -6,21 +6,25 @@
     justify-content: space-between;
     font-family: "Inter", sans-serif;
 }
+
 .footer .left h3 {
     margin-top: -20px;
 }
+
 .footer .left h3 img{
     width: 40px;
     height: 40px;
     margin-top: 10px;
 }
+
 .footer .left h3 {
     display: flex;
 }
+
 .footer .left .bottom {
     margin-top: 136px;
 }
-    
+
 .footer .left h4{
     font-size: 20px;
     font-weight: 600;
@@ -34,7 +38,7 @@
     line-height: 22px;
     text-align: left;
 }
-.footer .left p .icon{
+.footer .left p .icon{ 
     height: 20px;
     width: 20px;
     color: #FF7010;
