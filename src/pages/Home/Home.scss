@@ -1,0 +1,13 @@
+.categories{
+    display: flex;
+    gap: 20px;
+    .category-item{
+        border-radius: 8px;
+        padding: 10px;
+        background-color: wheat;
+    
+        h4{
+            font-size: 18px;
+        }
+    }
+}
