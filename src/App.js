@@ -20,9 +20,6 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/watchProduct' element={<WatchProduct />} />
       </Routes>
-      <Navbar/>
-      {/* <Header/> */}
-      {/* <Footer/> */}
     </div>
   );
 }
