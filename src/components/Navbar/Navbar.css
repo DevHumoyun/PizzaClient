@@ -82,3 +82,120 @@ hr {
 
 
 @media screen and (max-width: 390px) {}
+
+/* 
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+.header__main{
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+}
+
+.media, .media__btn{
+    display: none;
+}
+
+.header__main .nav__blox{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__main .nav__box{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.header__main a{
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+
+.hed__box2 a{
+    display: flex;
+    align-items: center;
+}
+
+.header__top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__top .top-box, .header__delivery-time{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.hamburger{
+    position: fixed;
+    top: 130px;
+    left: 0;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.hamburger ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.hamburger .account{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.hamburger .contact-item{
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 1010px){
+    .none{
+        display: none;
+    }
+    .media{
+        display: block;
+    }
+    .media__btn{
+        display: block;
+        padding: 10px;
+        font-size: 30px;
+        border: none;
+        background: transparent;
+    }
+    .header__top{
+        width: 100%;
+    }
+    .top-box{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+} */
