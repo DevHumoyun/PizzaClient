@@ -3,8 +3,12 @@ import "./Navbar.css"
 import img from "../../img/Group 1.png"
 import img2 from "../../img/Group 2.png"
 import { ShoppingCartOutlined, UserOutlined } from '@ant-design/icons'
+import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 const Navbar = () => {
+  const {user } = useSelector(state => state.authSlice)
+  
   return (
     <nav>
       <div className="container">
@@ -22,7 +26,10 @@ const Navbar = () => {
             </div>
             <div className="nav-right">
               <h4>Время работы: c 11:00 до 23:00</h4>
-              <UserOutlined className='user'/>Войти в аккаунт
+              {
+                user ?  <Link to={'/login'}><UserOutlined className='user'/>Войти в аккаунт</Link>:
+                <Link to={'/profile'}><UserOutlined className='user'/>Профил</Link>
+              }
             </div>
         </div>
       </div>

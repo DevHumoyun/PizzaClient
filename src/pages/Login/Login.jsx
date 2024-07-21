@@ -5,8 +5,9 @@ import 'react-phone-input-2/lib/style.css';
 import { login } from '../../server/authServer';
 import { useDispatch, useSelector } from 'react-redux';
 import { failureLoader, startLoader, successLoader } from '../../redux/reduxStore/loaderSLice';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { CloseOutlined } from '@ant-design/icons';
+import { setUser } from '../../redux/reduxStore/authSlice';
 
 const Login = () => {
 
@@ -14,7 +15,8 @@ const Login = () => {
     const [wareError , setWareError ] = useState('')
     const {isLoading} = useSelector(state => state.loaderSlice)
     const pass_ref = useRef();
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+    const navigate = useNavigate()
 
     const handlePhoneChange = (value) => {
         setPhone(value);
@@ -39,7 +41,9 @@ const Login = () => {
             localStorage.setItem("token" , token);
             localStorage.setItem("myId" , user._id);
 
+            setUser(user)
             dispatch(successLoader())
+            navigate('/')
         } catch (error) {
             dispatch(failureLoader())
             setWareError(error.response?.data?.message);
@@ -98,6 +102,7 @@ const Login = () => {
                     </label>
 
                     <span className='error-span'>{wareError}</span>
+                    <Link to={'/signup'} className='signup-link'>Sign up</Link>
                     <button  onClick={handleLogin} className="sign-btn">{isLoading ? "Loading..." : "Войти"}</button>
                 </div>
 

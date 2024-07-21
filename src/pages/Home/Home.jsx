@@ -4,15 +4,46 @@ import Navbar from '../../components/Navbar/Navbar'
 import Footer from '../../components/Footer/Footer'
 import { getAllCategories } from '../../server/categoryServer'
 import "./Home.scss"
+import { getAksiya } from '../../server/aksiyaServer'
+import FireImage from "../../img/Fire.png"
+import CheckMap from '../../components/CheckMap/CheckMap'
+import { updateUser } from '../../server/usersServer'
+import { toast } from 'react-toastify'
 
 const Home = () => {
-    const [categories , setCategories ] = useState([])
+    const [categories , setCategories ] = useState([]);
+    const [aksiya , setAksiya ] = useState([]);
+    const [openMap , setOpenMap ]  = useState(false);
+    const [userAddress , setUserAddress ] = useState()
 
     const handleCategories = async () => {
         try {
             const data = await getAllCategories();
             setCategories(data.categories)
+            
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const handleGetAksiya = async () => {
+        try {
+            const data = await getAksiya();
+            setAksiya(data.aksiya)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const handleChangeAddress = async () => {
+        try {
+            const id = localStorage.getItem('myId')
+            const formData = new FormData();
+            console.log(userAddress);
+            formData.append('address' , JSON.stringify(userAddress))
+            const data = await updateUser(formData, id);
             console.log(data);
+
         } catch (error) {
             console.log(error);
         }
@@ -20,24 +51,70 @@ const Home = () => {
 
     useEffect(() => {
         handleCategories();
-        console.log(categories);
+        handleGetAksiya()
+        
     }, [])
   return (
-    <div>
+    <div className='home'>
         <Navbar />
+
         <div className="categories">
+                    <div className='category-item'>
+                        <img src={FireImage} alt="" />
+                        <h4>Акции</h4>
+                    </div>
         {
             categories &&
             categories.map(item => {
                 return (
-                    <div className='category-item'>
+                    <div key={item._id} className='category-item'>
+                        <img src={item.image.url} alt="image" />
                         <h4>{item.title}</h4>
                     </div>
                 )
             })
         }
         </div>
-        <Footer/>
+
+        <div className="aksiya">
+            {
+                aksiya &&
+                aksiya.map(item => {
+                    return (
+                        <div className='aksiya-item' key={item._id} style={
+                            {backgroundImage: `url(${item.image.url})`,
+                            width: "100px" ,
+                            height: "100px",
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center' 
+                            }
+                            }>
+                            <p>{item.text}</p>
+                        
+                        </div>
+                    )
+                })
+            }
+        </div>
+
+        <div className='check-address'>
+            <label htmlFor="check-address-input">
+                <h4>Проверить адрес доставки </h4>
+                <input type="text" placeholder='Адрес'/>
+                {
+                    openMap ? <>
+                        <button onClick={handleChangeAddress} >Изменить</button>
+                        <button onClick={() => setOpenMap(false)}>Отменить</button>
+                    </>:
+                    <button onClick={() => setOpenMap(true)} className='btn'>Проверить</button>
+                }
+                
+            </label>
+                {
+                    openMap && <CheckMap setUserAddress={setUserAddress} />
+                }
+        </div>
+        {/* <Footer/> */}
 
     </div>
   )
