@@ -10,3 +10,11 @@ export const getAllCategories = async () => {
     return res.data;
 }
 
+export const  getOneCategory = async (id) => {
+    let res = await API.get(`/category/${id}`)
+    return res.data
+}
+export const getCategoryProducts = async () => {
+    let res = await API.get('/category/products')
+    return res.data
+}

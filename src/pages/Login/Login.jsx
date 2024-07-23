@@ -40,8 +40,7 @@ const Login = () => {
             setWareError("")
             localStorage.setItem("token" , token);
             localStorage.setItem("myId" , user._id);
-
-            setUser(user)
+            dispatch(setUser(user))
             dispatch(successLoader())
             navigate('/')
         } catch (error) {

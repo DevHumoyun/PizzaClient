@@ -27,7 +27,7 @@ const Navbar = () => {
             <div className="nav-right">
               <h4>Время работы: c 11:00 до 23:00</h4>
               {
-                user ?  <Link to={'/login'}><UserOutlined className='user'/>Войти в аккаунт</Link>:
+                !user ?  <Link to={'/login'}><UserOutlined className='user'/>Войти в аккаунт</Link>:
                 <Link to={'/profile'}><UserOutlined className='user'/>Профил</Link>
               }
             </div>
@@ -41,7 +41,7 @@ const Navbar = () => {
             <h4>Куда пицца</h4>
           </div>
           <div className="nav-low-right">
-            <button><ShoppingCartOutlined className='shopping'/> 0 ₽</button>
+            <button ><ShoppingCartOutlined className='shopping'/> 0 ₽</button>
           </div>
         </div>
       </div>

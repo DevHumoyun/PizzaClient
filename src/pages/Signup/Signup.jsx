@@ -60,7 +60,7 @@ const Signup = () => {
             const {token , user} = await register(formData);
             localStorage.setItem("token" , token);
             localStorage.setItem("myId" , user._id);
-            setUser(user)
+            dispatch(setUser(user))
             setErrorText("");
             dispatch(successLoader())
             navigate('/signup2')

@@ -3,9 +3,15 @@
     margin: 0;
     box-sizing: border-box;
     font-family: "Inter", sans-serif;
+    /* background-color: #F9F9F9; */
 }
 
 .container {
     max-width: 1290px;
     margin: 0 auto;
+    
+}
+
+.App{
+    background-color: #F9F9F9;
 }

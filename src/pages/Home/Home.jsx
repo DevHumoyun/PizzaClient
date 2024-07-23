@@ -2,23 +2,24 @@ import React, { useEffect, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Navbar from '../../components/Navbar/Navbar'
 import Footer from '../../components/Footer/Footer'
-import { getAllCategories } from '../../server/categoryServer'
+import { getAllCategories, getCategoryProducts } from '../../server/categoryServer'
 import "./Home.scss"
 import { getAksiya } from '../../server/aksiyaServer'
 import FireImage from "../../img/Fire.png"
 import CheckMap from '../../components/CheckMap/CheckMap'
 import { updateUser } from '../../server/usersServer'
 import { toast } from 'react-toastify'
+import ProductItem from '../../components/ProductItem/ProductItem'
 
 const Home = () => {
     const [categories , setCategories ] = useState([]);
     const [aksiya , setAksiya ] = useState([]);
     const [openMap , setOpenMap ]  = useState(false);
-    const [userAddress , setUserAddress ] = useState()
+    const [userAddress , setUserAddress ] = useState();
 
     const handleCategories = async () => {
         try {
-            const data = await getAllCategories();
+            const data = await getCategoryProducts();
             setCategories(data.categories)
             
         } catch (error) {
@@ -40,7 +41,7 @@ const Home = () => {
             const id = localStorage.getItem('myId')
             const formData = new FormData();
             console.log(userAddress);
-            formData.append('address' , JSON.stringify(userAddress))
+            formData.append('address' , JSON.stringify(userAddress  ))
             const data = await updateUser(formData, id);
             console.log(data);
 
@@ -86,7 +87,7 @@ const Home = () => {
                             width: "100px" ,
                             height: "100px",
                             backgroundSize: 'cover',
-                            backgroundPosition: 'center' 
+                            backgroundPosition: 'center', 
                             }
                             }>
                             <p>{item.text}</p>
@@ -114,6 +115,24 @@ const Home = () => {
                     openMap && <CheckMap setUserAddress={setUserAddress} />
                 }
         </div>
+
+        {
+            categories.map(category => {
+                return(
+                    <div key={category._id}>
+                        <h3>{category.title}</h3>
+                        {
+                            category.products?.map(item => {
+                                return(
+                                    <ProductItem key={item._id} product={item} />
+                                    
+                                )
+                            })
+                        }
+                    </div>
+                )
+            })
+        }
         {/* <Footer/> */}
 
     </div>

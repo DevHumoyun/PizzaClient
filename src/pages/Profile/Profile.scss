@@ -1,0 +1,47 @@
+.profile{
+    max-width: 1290px;
+    margin: auto;
+    .my-account-title{
+
+    }
+    div.account{
+        display: flex;
+        max-width: 850px;
+        margin: auto;
+        justify-content: space-between;
+        .acc-btns-box{
+            display: flex;
+        }
+        .acc-btns{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 180px;
+            height: 48px;
+            gap: 0px;
+            border-radius: 6px;
+            border: 1px;
+            background-color: white;
+            opacity: 0px;
+            //styleName: Desktop/Normal;
+            font-family: SF Pro Text;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 22px;
+            text-align: center;
+            color: #191919;
+            text-decoration: none ;
+        }
+        .active{
+            background-color: #FF7010;
+            color: white;
+        }
+        .history-btn{
+           
+
+        }
+        .setting-btn{
+
+        }
+    }
+}

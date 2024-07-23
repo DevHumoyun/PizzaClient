@@ -10,3 +10,7 @@ export const updateUser = async (formData , id) => {
     return res.data;
 }
 
+export const getOneUser = async (id) => {
+    let res = await API.get(`/users/${id}`)
+    return res.data;
+}
