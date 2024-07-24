@@ -3,14 +3,25 @@ import "./Navbar.css"
 import img from "../../img/Group 1.png"
 import img2 from "../../img/Group 2.png"
 import { ShoppingCartOutlined, UserOutlined } from '@ant-design/icons'
-import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { Dropdown, DropdownButton } from 'react-bootstrap'
+import { setUser } from '../../redux/reduxStore/authSlice'
 
 const Navbar = () => {
-  const {user } = useSelector(state => state.authSlice)
+  const {user } = useSelector(state => state.authSlice);
+  const dispatch = useDispatch();
+  const navigate = useNavigate()
+
+  const handleLogout = () => {
+    localStorage.clear();
+    dispatch(setUser(null));
+    navigate('/login')
+  }
   
   return (
-    <nav>
+   <div className="nav-main">
+     <nav>
       <div className="container">
         <div className="nav-top">
             <div className="nav-left">
@@ -21,31 +32,48 @@ const Navbar = () => {
                     <option value="toshkent">Toshkent</option>
                   </select>
               </div>
-              <h4>Проверить адрес</h4>
-              <h4>Среднее время доставки*: 00:24:19</h4>
+              <h4 className='h4'>Проверить адрес</h4>
+              <h4 className='h4'>Среднее время доставки*: 00:24:19</h4>
             </div>
             <div className="nav-right">
               <h4>Время работы: c 11:00 до 23:00</h4>
-              {
+              
+              <DropdownButton variant='secondary' id="dropdown-basic-button" title={<div><UserOutlined className='user'/> Войти в аккаунт</div>}>
+                {
+                  user ? <>
+                  <Dropdown.Item className='dropdown-item bonus'  >100 бонусов</Dropdown.Item>
+                <Dropdown.Item  className='dropdown-item' >История заказов</Dropdown.Item>
+                <Dropdown.Item className='dropdown-item' ><Link className='dropdown-link' to={'/profile/update'}>Настройки</Link></Dropdown.Item>
+                <Dropdown.Item onClick={handleLogout} className='logout dropdown-item'>Выход из аккаунта</Dropdown.Item></> :
+
+                <Dropdown.Item><Link className='dropdown-link' to={'/login'}>Войти</Link></Dropdown.Item>
+
+                }
+              </DropdownButton>
+      
+            
+              
+              {/* {
                 !user ?  <Link to={'/login'}><UserOutlined className='user'/>Войти в аккаунт</Link>:
                 <Link to={'/profile'}><UserOutlined className='user'/>Профил</Link>
-              }
+              } */}
             </div>
         </div>
       </div>
       <hr />
       <div className="container">
         <div className="nav-low">
-          <div className="nav-low-left">
+          <Link to={'/'} className="nav-low-left">
             <img src={img2} alt="pizza" />
             <h4>Куда пицца</h4>
-          </div>
+          </Link>
           <div className="nav-low-right">
             <button ><ShoppingCartOutlined className='shopping'/> 0 ₽</button>
           </div>
         </div>
       </div>
     </nav>
+   </div>
   )
 }
 

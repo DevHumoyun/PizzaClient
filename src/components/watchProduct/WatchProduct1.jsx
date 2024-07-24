@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react';
 import pizza from "../../img/Rectangle 4.png"
 import fire from "../../img/Group 81.png"
 import cheese from "../../img/Group 83.png"
@@ -10,13 +10,26 @@ import onions from "../../img/Group 728.png"
 import maybe from "../../img/Group 729.png"
 import "./WatchProduct.css"
 
-const WatchProduct = () => {
+import { Button, Modal } from 'antd';
+
+const WatchProduct = ({setIsModalOpen , isModalOpen , modalInfo}) => {
+  
+
+  
+
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
   return (
-    <div className='Products'>
+    <>
+      
+      <Modal className='Products' footer={false} open={isModalOpen} onCancel={handleCancel}>
+        
       <div className="products-content">
         <div className="products-content-right">
           <button className='new'>NEW</button>
-          <img src={pizza} alt=""  className='pizza'/>
+          <img src={modalInfo?.image?.url} alt=""  className='pizza'/>
         </div>
         <div className="products-content-left">
           <p><img src={fire} alt="fire" /> Пепперони по-деревенски</p>
@@ -112,7 +125,10 @@ const WatchProduct = () => {
           </div>
         </div>
       </div>
-    </div>
+    
+      </Modal>
+    </>
+    
   )
 }
 

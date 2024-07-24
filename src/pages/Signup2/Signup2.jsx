@@ -101,7 +101,7 @@ const Signup2 = () => {
 
   return (
     <div>
-      <div className="sign-up">
+      <div className="sign-up signup2">
         <div className="sign-parent">
 
             <div className="sign-up-box">

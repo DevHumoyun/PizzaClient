@@ -1,0 +1,59 @@
+.nav-low-right button{
+    border-radius: 4px;
+    background-color: #FF7010;
+    padding: 8px 16px;
+    color: #FFFFFF;
+    line-height: 22px;
+    border: none;
+    font-size: 15px;
+}
+
+
+.nav-low-left{
+    display: flex;
+}
+.nav-low-left img{
+    object-fit: contain;
+    margin-right: 12px;
+}
+.navbar2 {
+    display: flex;
+    justify-content: space-between;
+    line-height: 64px;
+    align-items: center;
+    margin-top: 10px;
+}
+.navbar2 h4{
+    font-size: 18px;
+   
+    color: #191919;
+
+}
+.navbar-categories{
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    margin-top: 24px;
+    margin-left: 65px;
+    .navbar-category-item{
+        list-style: none;
+        //styleName: Desktop/Normal;
+        font-family: SF Pro Text;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22px;
+        text-align: center;
+
+    }
+}
+
+.shopp-btn{
+ max-height: 40px !important;
+ margin-bottom: 12px;
+}
+.nav-low-right{
+   padding-top: 20px;
+   .shopping{
+    font-size: 16px;
+   }
+}

@@ -15,6 +15,7 @@ import Profile from './pages/Profile/Profile';
 import { getOneUser } from './server/usersServer';
 import { setUser } from './redux/reduxStore/authSlice';
 import { useEffect } from 'react';
+import Menu from './components/Menu/Menu';
 
 function App() {
   const {user } = useSelector(state => state.authSlice)
@@ -38,11 +39,12 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/watchProduct' element={<WatchProduct />} />
-        {!user && <Route path='/signup' element={<Signup />} />}
+        <Route path='/*' element={<Home />} />
+        
+        <Route path='/menu/' element={<Menu />} />
+        {/* {!user && <Route path='/signup' element={<Signup />} />}
         {user && <Route path='/signup2' element={<Signup2 />} />}
-        {!user && <Route path='/login' element={<Login />} />}
+        {!user && <Route path='/login' element={<Login />} />} */}
         <Route path='/profile/*' element={<Profile />} />
       </Routes>
     </div>

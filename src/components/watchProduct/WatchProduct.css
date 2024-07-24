@@ -19,6 +19,8 @@
 .Products .products-content .products-content-right .new{}
 .Products .products-content .products-content-right .pizza{
     display: flex;
+    width: 450px;
+    height: 450px;
     flex-direction: column;
 }
 .Products .products-content .products-content-left{}
