@@ -10,6 +10,8 @@ import CheckMap from '../../components/CheckMap/CheckMap'
 import { updateUser } from '../../server/usersServer'
 import { toast } from 'react-toastify'
 import ProductItem from '../../components/ProductItem/ProductItem'
+import ProductItemCss from '../../components/ProductItem/ProductItem.css'
+// import "./ProductItem.css"
 
 const Home = () => {
     const [categories , setCategories ] = useState([]);
@@ -84,8 +86,8 @@ const Home = () => {
                     return (
                         <div className='aksiya-item' key={item._id} style={
                             {backgroundImage: `url(${item.image.url})`,
-                            width: "100px" ,
-                            height: "100px",
+                            // width: "100px" ,
+                            // height: "100px",
                             backgroundSize: 'cover',
                             backgroundPosition: 'center', 
                             }
@@ -119,12 +121,12 @@ const Home = () => {
         {
             categories.map(category => {
                 return(
-                    <div key={category._id}>
-                        <h3>{category.title}</h3>
+                    <div className='category' key={category._id}>
+                        <h3 className='title'>{category.title}</h3>
                         {
                             category.products?.map(item => {
                                 return(
-                                    <ProductItem key={item._id} product={item} />
+                                    <ProductItem key={item._id} product={item}/>
                                     
                                 )
                             })

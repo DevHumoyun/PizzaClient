@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import moment from 'moment'
+import "./ProfileUptade.scss"
 
 const ProfileUpdate = () => {
     const {user} = useSelector(state => state.authSlice);
