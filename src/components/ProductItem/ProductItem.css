@@ -1,39 +1,43 @@
-.home{}
-.home .categories{}
-.home .categories .category-item{
-    background-color: #ffffff;
-    text-align: center;
-    border: 1px solid #F0F0F0;
-    width: 135px;
-    height: 104px;
-    padding-top: 20px;
-}
-.home .categories .category-item img {
-    width: 32px;
-    height: 32px;
-}
-.home .categories .category-item h4 {
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 24px;
-    text-align: center;
-    color: #191919;
+.card{ 
+    width: 300px;
+    padding: 20px;
+    margin-top: 28px;
 }
 
-.home .aksiya .aksiya-item{
-    width: 300px;
-    height: 343px;
-    top: 270px;
-    left: 195px;
-    gap: 0px;
+content{
+    width: 400px;
+    padding: 50px;
+    gap: 10px;
+    /* border-radius: 12px; */
+    border: 1px solid #F0F0F0;
     opacity: 0px;
-    border-radius: 10px;
 }
-.home .aksiya .aksiya-item p{
-    max-width: 240px;
-    padding-top: 267px;
-    padding-left: 20px;
-    padding-bottom: 20px;
-    color: #ffffff;
-    width: 200px;
+.content img{
+    width: 260px;
+    height: 300px;
+    border: 1px solid #F0F0F0;
+}
+
+.content div h4{
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 24px;
+    text-align: left;
+    color: #191919;
+    margin-top: 16px;
+    margin-bottom: 12px;
+}
+.content div p{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    color: #191919;
+}
+.content div .price{
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 24px;
+    text-align: right;
+    color: #ff7010;
 }

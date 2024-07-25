@@ -40,7 +40,7 @@ const ProfileUpdate = () => {
         </div>
         <div className="profile-password">
             <h3 className='acc-pass-title'>Пароль</h3>
-            <button className="change-info">Изменить</button>
+            <button className="change-info"><i class="fa-solid fa-pen"></i> Изменить</button>
         </div>
         <div className="profile-follows">
             <h3 className='acc-pass-title'>Подписки</h3>

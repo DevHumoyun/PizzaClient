@@ -22,6 +22,7 @@
     width: 450px;
     height: 450px;
     flex-direction: column;
+    object-fit: contain;
 }
 .Products .products-content .products-content-left{}
 .Products .products-content .products-content-left p{
@@ -129,7 +130,7 @@
     text-align: left;
 }
 .Products .products-content .products-content-left .common-money button{
-    width: 155px;
+    width: 165px;
     height: 48px;
     padding: 13px 40px 13px 40px;
     gap: 10px;
