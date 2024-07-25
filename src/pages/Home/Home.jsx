@@ -114,8 +114,7 @@ const Home = () => {
                             return (
                                 <div className='aksiya-item' key={item._id} style={
                                     {backgroundImage: `url(${item.image.url})`,
-                                    width: "100px" ,
-                                    height: "100px",
+                                    
                                     backgroundSize: 'cover',
                                     backgroundPosition: 'center', 
                                     }
