@@ -1,0 +1,22 @@
+.personal-information {
+    background-color: #FFFFFF;
+    padding: 24px 32px;
+}
+.personal-information .pers-info-top{
+    display: flex;
+    justify-content: space-between;
+}
+// .personal-information .pers-info-top .pers-info-title{}
+// .personal-information .pers-info-top .change-info{}
+
+.personal-information table {
+    width: auto;
+}
+// .personal-information table thead{}
+// .personal-information table thead tr{}
+.personal-information table thead tr th{
+    margin-left: 32px;
+}
+// .personal-information table tbody {}
+// .personal-information table tbody tr{}
+// .personal-information table tbody tr td{}

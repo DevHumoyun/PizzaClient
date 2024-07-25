@@ -20,4 +20,4 @@ const ProductItem = ({product, handleOpenModal}) => {
   )
 }
 
-export default ProductItem
+export default ProductItem;
