@@ -16,6 +16,7 @@ import { getOneUser } from './server/usersServer';
 import { setUser } from './redux/reduxStore/authSlice';
 import { useEffect } from 'react';
 import Menu from './components/Menu/Menu';
+import Korzinka2 from './pages/Korzinka2/Korzinka2';
 
 function App() {
   const {user } = useSelector(state => state.authSlice)
@@ -42,6 +43,7 @@ function App() {
         
         <Route path='/menu/' element={<Menu />} />
         <Route path='/profile/*' element={<Profile />} />
+        <Route path='/korzinka2' element={<Korzinka2/>} />
       </Routes>
     </div>
   );
