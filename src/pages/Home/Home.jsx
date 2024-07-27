@@ -150,7 +150,7 @@ const Home = () => {
                 </div>
 
                 <div className='check-address'>
-                    <label className='chack' htmlFor="check-address-input">
+                    <label className='chack ' htmlFor="check-address-input">
                         <h4>Проверить адрес доставки </h4>
                         <input type="text" placeholder='Адрес'/>
                         {
