@@ -1,14 +1,19 @@
 .profile{
     max-width: 1290px;
     margin: auto;
+    height: 77vh;
     .my-account-title{
-
+        font-size: 40px;
+        font-weight: 600;
+        line-height: 48px;
+        text-align: left;
     }
     div.account{
         display: flex;
         max-width: 850px;
         margin: auto;
         justify-content: space-between;
+        padding: 40px 0 24px 0;
         .acc-btns-box{
             display: flex;
         }
@@ -23,8 +28,6 @@
             border: 1px;
             background-color: white;
             opacity: 0px;
-            //styleName: Desktop/Normal;
-            font-family: SF Pro Text;
             font-size: 16px;
             font-weight: 400;
             line-height: 22px;

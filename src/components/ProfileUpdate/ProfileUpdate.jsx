@@ -11,11 +11,11 @@ const ProfileUpdate = () => {
         
     } ,[])
   return (
-    <div>
+    <div className='Profile-uptade'>
         <div className="personal-information">
             <div className="pers-info-top">
                 <h3 className="pers-info-title">Личные данные</h3>
-                <button className="change-info">Изменить</button>
+                <button className="change-info"><i class="fa-solid fa-pen"></i> Изменить</button>
             </div>
             <div>
                 <table>

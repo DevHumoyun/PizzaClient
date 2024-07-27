@@ -1,69 +1,102 @@
-// .personal-information {
-//     background-color: #FFFFFF;
-//     padding: 24px 32px;
-// }
-// .personal-information .pers-info-top{
-//     display: flex;
-//     justify-content: space-between;
-// }
-// // .personal-information .pers-info-top .pers-info-title{}
-// // .personal-information .pers-info-top .change-info{}
-
-// .personal-information table {
-//     width: auto;
-// }
-// // .personal-information table thead{}
-// // .personal-information table thead tr{}
-// .personal-information table thead tr th{
-//     margin-left: 32px;
-// }
-// // .personal-information table tbody {}
-// // .personal-information table tbody tr{}
-// // .personal-information table tbody tr td{}
-
-.personal-information{
-    background-color: #ffffff;
-    padding: 24px 32px;
-    .pers-info-top{
+.Profile-uptade{
+    .personal-information{
+        background-color: #ffffff;
+        padding: 24px 32px;
+        border: 1px solid #F0F0F0;
+        border-radius: 12px;
+        .pers-info-top{
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 16px;
+            .pers-info-title{
+                font-size: 24px;
+                font-weight: 600;
+                line-height: 32px;
+                text-align: left;
+                color: #191919;
+            }
+            .change-info{
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 22px;
+                text-align: center;
+                color: #F07010;
+                border: none;
+                background-color: #ffffff;
+            }
+        }
+        table{
+            thead{
+                tr{
+                    th{
+                        font-size: 14px;
+                        font-weight: 400;
+                        line-height: 18px;
+                        text-align: left;
+                        color: #A5A5A5;
+                        padding-bottom: 6px;
+                        padding-right: 45px;
+                    }
+                }
+            }
+            tbody{
+                tr{
+                    td{
+                        font-size: 16px;
+                        font-weight: 400;
+                        line-height: 22px;
+                        text-align: left;
+                        padding-right: 32px;
+                    }
+                }
+            }
+        }
+    }
+    
+    .profile-password{
         display: flex;
         justify-content: space-between;
-        .pers-info-title{}
-        .change-info{}
-    }
-    table{
-
-    }
-}
-
-.profile-password{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-    height: 80px;
-    align-items: center;
-    background-color: #ffffff;
-    padding: 0 32px;
-    border: 1px solid #F0F0F0;
-    border-radius: 12px;
-    .acc-pass-title{
-        margin-top: 10px;
-    }
-    .change-info{
-        border: none;
+        margin-top: 20px;
+        height: 80px;
+        align-items: center;
         background-color: #ffffff;
-        height: 22px;
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 22px;
-        text-align: center;
-        color: #F07010;
+        padding: 0 32px;
+        border: 1px solid #F0F0F0;
+        border-radius: 12px;
+        .acc-pass-title{
+            margin-top: 10px;
+        }
+        .change-info{
+            border: none;
+            background-color: #ffffff;
+            height: 22px;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 22px;
+            text-align: center;
+            color: #F07010;
+        }
     }
-}
-
-.profile-follows {
-    background-color: #ffffff;
-    margin-top: 20px;
-    padding: 24px 0 24px 32px;
-    .acc-pass-title{}
-    p{}
+    
+    .profile-follows {
+        background-color: #ffffff;
+        margin-top: 20px;
+        padding: 24px 0 24px 32px;
+        border: 1px solid #F0F0F0;
+        border-radius: 12px;
+        .acc-pass-title{
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 32px;
+            text-align: left;
+            color: #191919;
+        }
+        p{
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 22px;
+            text-align: left;
+            color: #191919;
+        }
+    }
 }
