@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./Navbar.css"
 import img from "../../img/Group 1.png"
 import img2 from "../../img/Group 2.png"
@@ -7,9 +7,11 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Dropdown, DropdownButton } from 'react-bootstrap'
 import { setUser } from '../../redux/reduxStore/authSlice'
+import KorzinkaModel from '../KorzinkaModel/KorzinkaModel'
 
 const Navbar = () => {
   const {user } = useSelector(state => state.authSlice);
+  const [modal2Open , setModal2Open ] = useState(false)
   const dispatch = useDispatch();
   const navigate = useNavigate()
 
@@ -68,11 +70,12 @@ const Navbar = () => {
             <h4>Куда пицца</h4>
           </Link>
           <div className="nav-low-right">
-            <button ><ShoppingCartOutlined className='shopping'/> 0 ₽</button>
+            <button onClick={() => setModal2Open(true)} ><ShoppingCartOutlined className='shopping'/> 0 ₽</button>
           </div>
         </div>
       </div>
     </nav>
+    <KorzinkaModel isModalOpen={modal2Open} setIsModalOpen={setModal2Open} />
    </div>
   )
 }

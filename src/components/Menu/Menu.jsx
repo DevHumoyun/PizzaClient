@@ -4,12 +4,17 @@ import { getOneCategory } from '../../server/categoryServer'
 import ProductItem from '../ProductItem/ProductItem'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { getKombo } from '../../server/komboServer'
+import WatchProduct from '../watchProduct/WatchProduct1'
 
 const Menu = () => {
 
   const [ category, setCategory ] = useState();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalInfo , setModalInfo ] = useState({})
+  const [categoryTitle , setCategoryTitle ] = useState('');
   let {menuId} = useSelector(state => state.storageSlice)
-
+  
 
 
   const handleGetCategory = async () => {
@@ -17,12 +22,26 @@ const Menu = () => {
       if(!menuId){
         menuId = localStorage.getItem('menuId')
       }
-      const data =await  getOneCategory(menuId);
-      setCategory(data.category[0])
+
+      if(menuId == 'kombo'){
+            const data = await getKombo();
+            setCategory({products:data.kombos , title: "Комбо"});
+            
+      }
+      else{
+        const data =await  getOneCategory(menuId);
+        setCategory(data.category[0])
+      }
     } catch (error) {
       console.log(error);
     }
   }
+
+  const handleOpenModal= (product , title) => {
+    setIsModalOpen(true)
+    setModalInfo(product)
+    setCategoryTitle(title)
+}
 
   useEffect(() => {
     handleGetCategory()
@@ -37,12 +56,14 @@ const Menu = () => {
           category &&
           category.products.map(item => {
             return(
-              <ProductItem key={item._id} product={item} />
+              <ProductItem handleOpenModal={() => handleOpenModal(item , category.title)}  key={item._id} product={item} />
             )
           })
         }
       </div>
     </div>
+
+    <WatchProduct isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} categoryTitle={categoryTitle} modalInfo={modalInfo} />
     </>
   )
 }

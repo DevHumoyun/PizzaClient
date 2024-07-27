@@ -1,0 +1,36 @@
+.my-modal{
+    width: 100vw;
+    background-color: rgba($color: #19191966, $alpha: 0.4);
+    backdrop-filter: blur(5px);
+    position: fixed;
+    display: flex;
+    justify-content: end;
+    top: 0;
+    
+}
+.my-modal-box{
+    height: 100vh;
+    width: 420px;
+    background-color: white;
+    margin-right:0 ;
+    padding: 20px;
+    
+
+}
+.my-modal-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h3{
+        font-family: Inter;
+        font-size: 32px;
+        font-weight: 600;
+        line-height: 40px;
+        text-align: left;
+
+    }
+    i{
+        font-size: 32px;
+        opacity: 0.5;
+    }
+}

@@ -12,17 +12,36 @@
     display: flex;
     justify-content: space-between;
     border-radius: 24px;
-    padding-top: 32px;
+    /* padding-top: 32px; */
     padding-right: 20px;
+   
 }
 .Products .products-content .products-content-right{}
-.Products .products-content .products-content-right .new{}
+.Products .products-content .products-content-right .new{
+
+    font-family: SF Pro Text;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+    color: white;
+    background-color: #E23535;
+    width: 82px;
+    border-radius: 5px;
+    border: none;
+    height: 40px;
+    position: absolute;
+    left: 0;
+    top: 32px;
+}
 .Products .products-content .products-content-right .pizza{
     display: flex;
     width: 450px;
     height: 450px;
+    margin-top: 83px;
     flex-direction: column;
-    object-fit: contain;
+    object-fit: cover;
+    border-radius: 16px;
 }
 .Products .products-content .products-content-left{}
 .Products .products-content .products-content-left p{
@@ -34,10 +53,14 @@
     width: 480px;
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
 }
 .Products .products-content .products-content-left .left-item .additional-products{
     width: 105px;
     text-align: center;
+}
+.Products .products-content .products-content-left .left-item .active-extra .additional-products-item{
+    border: 1px solid  #FF7010 !important;
 }
 .Products .products-content .products-content-left .left-item .additional-products .additional-products-item{
     width: 105px;
@@ -49,9 +72,8 @@
     border: 1px solid #F0F0F0;
     line-height: 105px;
     align-items: center;
-    padding-top: 10px;
-
 }
+
 .Products .products-content .products-content-left .left-item .additional-products .additional-products-item img{}
 .Products .products-content .products-content-left .left-item .additional-products .additional-products-title{}
 .Products .products-content .products-content-left .left-item .additional-products .additional-products-title h5{
@@ -78,9 +100,10 @@
     text-align: center;
     line-height: 48px;  
 }
-.Products .products-content .products-content-left .dimensions .top .left:first-child{
+.Products .products-content .products-content-left .dimensions .top .active-type{
     background-color: #FF7010;
     color: #FFFFFF;
+    cursor: pointer;
     border-radius: 6px;
 }
 .Products .products-content .products-content-left .dimensions .bottom{
@@ -91,10 +114,11 @@
     width: 160px;
     text-align: center;
     margin-top: 16px;
+    cursor: pointer;
     line-height: 44px;
 }
 
-.Products .products-content .products-content-left .dimensions .bottom .left:first-child{
+.Products .products-content .products-content-left .dimensions .bottom .active-sm{
     background-color: #FF7010;
     border-radius: 6px;
     color: white;
@@ -142,4 +166,29 @@
     text-align: center;
     background-color: #FF7010;
     color: #F0F0F0;
+    border: none;
+}
+
+.additional-products , .left {
+    background-color: transparent;
+    border: none;
+}
+
+.kombo-box{
+    margin-right: 10px;
+}
+.kombo-box .kombo-img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 18px;
+}
+
+.kombo-box .kombo-title{
+    font-size: 18px;
+
+}
+
+.ant-modal{
+    top: 40px !important;
 }

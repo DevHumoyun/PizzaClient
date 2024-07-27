@@ -2,6 +2,7 @@
     width: 300px;
     padding: 20px;
     margin-top: 28px;
+    position: static !important;
 }
 
 content{

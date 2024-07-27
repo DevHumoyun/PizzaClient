@@ -9,9 +9,11 @@ import { setUser } from '../../redux/reduxStore/authSlice'
 import { Dropdown, DropdownButton } from 'react-bootstrap'
 import { getCategoryProducts } from '../../server/categoryServer'
 import { setMenuStorage } from '../../redux/reduxStore/storageSlice'
+import KorzinkaModel from '../KorzinkaModel/KorzinkaModel'
 
 const Navbar2 = () => {
     const [categories , setCategories ] = useState([]);
+    const [modal2Open , setModal2Open ] = useState(false)
     const {user } = useSelector(state => state.authSlice);
     const dispatch = useDispatch();
     const navigate = useNavigate()
@@ -53,6 +55,7 @@ const Navbar2 = () => {
               </div>
               <ul className='navbar-categories'>
                 <li className='navbar-category-item'>Акции</li>
+                <li onClick={() => handleMenu('kombo')} className='navbar-category-item' >Комбо</li>
                 {
                     categories&& 
                     categories.map(category => {
@@ -65,13 +68,14 @@ const Navbar2 = () => {
             </div>
             <div className="nav-right">
                 <div className="nav-low-right">
-                    <button className='shopp-btn'><ShoppingCartOutlined className='shopping'/> 0 ₽</button>
+                    <button onClick={() => setModal2Open(true)} className='shopp-btn'><ShoppingCartOutlined className='shopping'/> 0 ₽</button>
                 </div>
             </div>
         </div>
       </div>
     </nav>
    </div>
+   <KorzinkaModel isModalOpen={modal2Open} setIsModalOpen={setModal2Open} />
     </div>
   )
 }

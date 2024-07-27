@@ -16,6 +16,9 @@ import Signup2 from '../Signup2/Signup2'
 import { setMenuStorage } from '../../redux/reduxStore/storageSlice'
 import { useDispatch } from 'react-redux'
 import WatchProduct from '../../components/watchProduct/WatchProduct1'
+import { getKombo } from '../../server/komboServer'
+import KomboPng from '../../img/Combo.png'
+import KorzinkaModel from '../../components/KorzinkaModel/KorzinkaModel'
 
 const Home = () => {
     const [categories , setCategories ] = useState([]);
@@ -24,6 +27,9 @@ const Home = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalInfo , setModalInfo ] = useState({})
     const [userAddress , setUserAddress ] = useState();
+    const [categoryTitle , setCategoryTitle ] = useState('');
+    const [kombo , setKombo ] = useState([]);
+    
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -68,15 +74,27 @@ const Home = () => {
         
     }
 
-    const handleOpenModal= (product) => {
+    const handleOpenModal= (product , title) => {
         setIsModalOpen(true)
         setModalInfo(product)
+        setCategoryTitle(title)
     }
+    const handleGetKombos = async () => {
+        try {
+            const data = await getKombo();
+            setKombo(data.kombos);
+            console.log(data);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+
 
     useEffect(() => {
         handleCategories();
         handleGetAksiya()
-        
+        handleGetKombos()
     }, [])
   return (
         <>
@@ -93,6 +111,10 @@ const Home = () => {
                             <div className='category-item'>
                                 <img src={FireImage} alt="" />
                                 <h4>Акции</h4>
+                            </div>
+                            <div onClick={() => handleMenu('kombo')} className='category-item'>
+                                <img src={KomboPng} alt="" />
+                                <h4>Комбо</h4>
                             </div>
                 {
                     categories &&
@@ -153,7 +175,7 @@ const Home = () => {
                                 {
                                     category.products?.map(item => {
                                         return(
-                                            <ProductItem handleOpenModal={handleOpenModal} key={item._id} product={item} />
+                                            <ProductItem handleOpenModal={() => handleOpenModal(item , category.title)} key={item._id} product={item} />
                                             
                                         )
                                     })
@@ -162,7 +184,19 @@ const Home = () => {
                         )
                     })
                 }
-                <WatchProduct isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} modalInfo={modalInfo} />
+                 <div >
+                    <h3>Комбо</h3>
+                    {
+                        kombo.map(item => {
+                            return(
+                                <ProductItem handleOpenModal={() => handleOpenModal(item , 'Комбо')} key={item._id} product={item} />
+                            )
+                        })
+                    }
+                </div>
+
+                
+                <WatchProduct isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} categoryTitle={categoryTitle} modalInfo={modalInfo} />
                 {/* <Footer/> */}
 
                 </div>

@@ -30,7 +30,6 @@ function App() {
       } 
       const data = await getOneUser(id)
       dispatch(setUser(data.user))
-      console.log(user , data.user);
     }
   }
   useEffect(() => {
@@ -42,9 +41,6 @@ function App() {
         <Route path='/*' element={<Home />} />
         
         <Route path='/menu/' element={<Menu />} />
-        {/* {!user && <Route path='/signup' element={<Signup />} />}
-        {user && <Route path='/signup2' element={<Signup2 />} />}
-        {!user && <Route path='/login' element={<Login />} />} */}
         <Route path='/profile/*' element={<Profile />} />
       </Routes>
     </div>
