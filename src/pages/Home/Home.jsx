@@ -19,6 +19,7 @@ import WatchProduct from '../../components/watchProduct/WatchProduct1'
 import { getKombo } from '../../server/komboServer'
 import KomboPng from '../../img/Combo.png'
 import KorzinkaModel from '../../components/KorzinkaModel/KorzinkaModel'
+import Korzinka2 from '../Korzinka2/Korzinka2'
 
 const Home = () => {
     const [categories , setCategories ] = useState([]);
@@ -102,6 +103,7 @@ const Home = () => {
                 <Route path='/login' element={<Login />} />
                 <Route path='/signup' element={<Signup />} />
                 <Route path='/signup2' element={<Signup2 />} />
+                
                 {/* <Route path='/watchProduct/:id' element={<WatchProduct />} /> */}
             </Routes>
             <Navbar />
