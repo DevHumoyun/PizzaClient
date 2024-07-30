@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
+import { Route, Routes, useNavigate } from 'react-router-dom'
 import Navbar from '../../components/Navbar/Navbar'
 import Footer from '../../components/Footer/Footer'
 import { getAllCategories, getCategoryProducts } from '../../server/categoryServer'
@@ -14,13 +14,12 @@ import Login from '../Login/Login'
 import Signup from '../Signup/Signup'
 import Signup2 from '../Signup2/Signup2'
 import { setMenuStorage } from '../../redux/reduxStore/storageSlice'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import WatchProduct from '../../components/watchProduct/WatchProduct1'
 import { getKombo } from '../../server/komboServer'
 import KomboPng from '../../img/Combo.png'
 import KorzinkaModel from '../../components/KorzinkaModel/KorzinkaModel'
 import Korzinka2 from '../Korzinka2/Korzinka2'
-import { setKorzinka, setPriceKorzinka } from '../../redux/reduxStore/korzinkaSlice'
 
 const Home = () => {
     const [categories , setCategories ] = useState([]);
@@ -31,8 +30,6 @@ const Home = () => {
     const [userAddress , setUserAddress ] = useState();
     const [categoryTitle , setCategoryTitle ] = useState('');
     const [kombo , setKombo ] = useState([]);
-    const pathName = useLocation().pathname
-    
     
 
     const navigate = useNavigate()
@@ -87,6 +84,7 @@ const Home = () => {
         try {
             const data = await getKombo();
             setKombo(data.kombos);
+            console.log(data);
         } catch (error) {
             console.log(error);
         }
@@ -97,14 +95,8 @@ const Home = () => {
     useEffect(() => {
         handleCategories();
         handleGetAksiya()
-        handleGetKombos();
-        
+        handleGetKombos()
     }, [])
-
-    useEffect(() => {
-       
-    } ,[pathName])
-
   return (
         <>
             <Routes>
@@ -112,8 +104,9 @@ const Home = () => {
                 <Route path='/signup' element={<Signup />} />
                 <Route path='/signup2' element={<Signup2 />} />
                 
+                {/* <Route path='/watchProduct/:id' element={<WatchProduct />} /> */}
             </Routes>
-            <Navbar isModalOpen={isModalOpen} isLog={pathName == '/login' || pathName == '/signup' || pathName == '/signup2'} />
+            <Navbar />
 
             <div className='home'>
                 <div className="categories">
@@ -158,7 +151,7 @@ const Home = () => {
                     }
                 </div>
 
-                <div className={`check-address ${openMap && 'check-address2'}`}>
+                <div className='check-address'>
                     <label className='chack ' htmlFor="check-address-input">
                         <h4>Проверить адрес доставки </h4>
 
@@ -173,11 +166,9 @@ const Home = () => {
                         }
                         
                     </label>
-                        <div>
                         {
                             openMap && <CheckMap setUserAddress={setUserAddress} />
                         }
-                        </div>
                 </div>
 
                 {
@@ -185,7 +176,6 @@ const Home = () => {
                         return(
                             <div key={category._id}>
                                 <h3>{category.title}</h3>
-                                <div className='product-box'>
                                 {
                                     category.products?.map(item => {
                                         return(
@@ -194,7 +184,6 @@ const Home = () => {
                                         )
                                     })
                                 }
-                                </div>
                             </div>
                         )
                     })
@@ -212,7 +201,7 @@ const Home = () => {
 
                 
                 <WatchProduct isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} categoryTitle={categoryTitle} modalInfo={modalInfo} />
-                {/* <Footer/> */}
+                <Footer/>
 
                 </div>
         </>
