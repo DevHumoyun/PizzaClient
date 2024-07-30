@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./Navbar.css"
 import img from "../../img/Group 1.png"
 import img2 from "../../img/Group 2.png"
@@ -8,21 +8,29 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Dropdown, DropdownButton } from 'react-bootstrap'
 import { setUser } from '../../redux/reduxStore/authSlice'
 import KorzinkaModel from '../KorzinkaModel/KorzinkaModel'
+import { setKorzinka } from '../../redux/reduxStore/korzinkaSlice'
 
-const Navbar = () => {
+const Navbar = ({isModalOpen , isLog}) => {
   const {user } = useSelector(state => state.authSlice);
+  const {korzinkaPrice } = useSelector(state => state.korzinkaSlice)
   const [modal2Open , setModal2Open ] = useState(false)
   const dispatch = useDispatch();
   const navigate = useNavigate()
 
   const handleLogout = () => {
     localStorage.clear();
+    dispatch(setKorzinka([]))
     dispatch(setUser(null));
     navigate('/login')
   }
+
+  useEffect(() => {
+    console.log(isLog);
+
+  } , [isLog])
   
   return (
-   <div className="nav-main">
+   <div className={`nav-main ${isModalOpen && "nav-index"} ${isLog && 'nav-log'}`}>
      <nav>
       <div className="container">
         <div className="nav-top">
@@ -70,7 +78,7 @@ const Navbar = () => {
             <h4>Куда пицца</h4>
           </Link>
           <div className="nav-low-right">
-            <button onClick={() => setModal2Open(true)} ><ShoppingCartOutlined className='shopping'/> 0 ₽</button>
+            <button onClick={() => setModal2Open(true)} ><ShoppingCartOutlined className='shopping'/> {korzinkaPrice} ₽</button>
           </div>
         </div>
       </div>

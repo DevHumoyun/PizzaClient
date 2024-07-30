@@ -65,7 +65,7 @@ const CheckMap = ({setUserAddress}) => {
     };
 
   return (
-    <div>
+    <div style={{margin: '20px 0'}}>
          {error ? (
                 <p>Error: {error}</p>
             ) : (

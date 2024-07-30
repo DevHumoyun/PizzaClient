@@ -3,13 +3,14 @@ import Navbar from '../../components/Navbar/Navbar'
 import './Profile.scss'
 import { Link, Route, Routes } from 'react-router-dom'
 import ProfileUpdate from '../../components/ProfileUpdate/ProfileUpdate'
+import Navbar3 from '../../components/Navbar3/Navbar3'
 
 const Profile = () => {
   const [active1 , setActive1 ] = useState('')
   const [active2 , setActive2 ] = useState('')
   return (
         <>
-          <Navbar />
+          <Navbar3 />
           <div className='profile'>
               
               <div className='account'>

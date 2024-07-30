@@ -1,25 +1,29 @@
-.card{ 
+.card1{ 
     width: 300px;
-    padding: 20px;
+    padding: 0 1px;
     margin-top: 28px;
     position: static !important;
 }
 
-content{
-    width: 400px;
-    padding: 50px;
+.content1{
+    width: 300px;
     gap: 10px;
     /* border-radius: 12px; */
     border: 1px solid #F0F0F0;
     opacity: 0px;
+    background-color: white;
+    
 }
-.content img{
-    width: 260px;
+.content1 img{
+    width: 299px;
     height: 300px;
-    border: 1px solid #F0F0F0;
+    object-fit: cover;
 }
 
-.content div h4{
+.content1 .content1-box{
+    padding: 20px;
+}
+.content1 div h4{
     font-size: 18px;
     font-weight: 600;
     line-height: 24px;
@@ -28,17 +32,37 @@ content{
     margin-top: 16px;
     margin-bottom: 12px;
 }
-.content div p{
+.content1 div p{
     font-size: 16px;
     font-weight: 400;
     line-height: 22px;
     text-align: left;
     color: #191919;
 }
-.content div .price{
+.content1 div .price{
     font-size: 18px;
     font-weight: 600;
     line-height: 24px;
     text-align: right;
     color: #ff7010;
+}
+
+.price-btn{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.price-btn .choose-btn{
+    border: none;
+    background-color: #ff7010;
+    color: white;
+    width: Hug (131px)px;
+    height: Hug (48px)px;
+    top: 96px;
+    padding: 13px 32px 13px 32px;
+    gap: 10px;
+    border-radius: 6px;
+    opacity: 0px;
+
 }

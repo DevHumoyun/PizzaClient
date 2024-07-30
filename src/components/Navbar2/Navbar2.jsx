@@ -15,6 +15,7 @@ const Navbar2 = () => {
     const [categories , setCategories ] = useState([]);
     const [modal2Open , setModal2Open ] = useState(false)
     const {user } = useSelector(state => state.authSlice);
+    const {korzinkaPrice } = useSelector(state => state.korzinkaSlice);
     const dispatch = useDispatch();
     const navigate = useNavigate()
 
@@ -42,7 +43,7 @@ const Navbar2 = () => {
 
   return (
     <div>
-      <div className="nav-main">
+      <div className="nav-main nav-main2">
      <nav>
       <div className="container">
         <div className="nav-top">
@@ -68,7 +69,7 @@ const Navbar2 = () => {
             </div>
             <div className="nav-right">
                 <div className="nav-low-right">
-                    <button onClick={() => setModal2Open(true)} className='shopp-btn'><ShoppingCartOutlined className='shopping'/> 0 ₽</button>
+                    <button onClick={() => setModal2Open(true)} className='shopp-btn'><ShoppingCartOutlined className='shopping'/> {korzinkaPrice} ₽</button>
                 </div>
             </div>
         </div>

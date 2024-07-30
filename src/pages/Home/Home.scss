@@ -1,6 +1,7 @@
 .home{
     max-width: 1290px;
     margin: auto;
+    margin-top: 110px;
     .categories{
         display: flex;
         gap: 20px;
@@ -49,8 +50,11 @@
             }
         }
     }
+    .check-address2{
+        margin-bottom: 500px;
+    }
     .check-address{
-        display: flex;
+        
         height: 80px;
         align-items: center;
         margin-top: 33px;
@@ -122,4 +126,9 @@
     h3{
         margin-top: 30px;
     }
+}
+
+.product-box{
+    display: flex;
+    gap: 30px;
 }

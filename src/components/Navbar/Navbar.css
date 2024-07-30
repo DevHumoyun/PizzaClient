@@ -1,6 +1,16 @@
 .nav-main{
     width: 100%;
     background-color: white;
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+}
+.nav-index{
+    z-index: 0 !important;
+}
+.nav-log{
+    position: static !important;
 }
 .nav-top {
   
@@ -59,12 +69,13 @@
 }
 hr {
     height: 1px;
+    margin: 0 0 12px 0 !important;
     color: #F0F0F0;
 }
 .nav-low {
     display: flex;
     justify-content: space-between;
-    line-height: 64px;
+    /* line-height: 64px; */
     align-items: center;
 }
 .nav-low .nav-low-left{
@@ -75,7 +86,9 @@ hr {
     margin-right: 12px;
 }
 .nav-low .nav-low-left h4{}
-.nav-low .nav-low-right{}
+.nav-low .nav-low-right{
+    padding: 0 0 12px 0;
+}
 .nav-low .nav-low-right button{
     border-radius: 4px;
     background-color: #FF7010;

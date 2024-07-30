@@ -9,7 +9,7 @@ import mushroom from "../../img/Group 727.png"
 import onions from "../../img/Group 728.png"
 import maybe from "../../img/Group 729.png"
 import "./WatchProduct.css"
-
+import { v4 } from 'uuid';
 import { Button, Modal } from 'antd';
 import { getExtraIngredient, getProductIngredients } from '../../server/ingredientsServer';
 import { getAllProducts } from '../../server/productsServer';
@@ -24,7 +24,8 @@ const WatchProduct = ({setIsModalOpen , isModalOpen , modalInfo, categoryTitle})
     const [cost , setCost ] = useState(modalInfo.price);
     const [activeIndex, setActiveIndex] = useState(0);
     const [extraActive, setExtraActive ] = useState([]);
-    const [products , setProducts ] = useState([])
+    const [products , setProducts ] = useState([]);
+    let testo = activeIndex == '1' ? 'Традиционное тесто' :'Тонкое тесто'
 
     const dispatch = useDispatch()
     
@@ -79,6 +80,7 @@ const WatchProduct = ({setIsModalOpen , isModalOpen , modalInfo, categoryTitle})
   
   const handleClickActive = (index) => {
     setActiveIndex(index);
+
   };
 
   const handleAddPrice = (item) => {
@@ -93,8 +95,27 @@ const WatchProduct = ({setIsModalOpen , isModalOpen , modalInfo, categoryTitle})
   }
 
   const handleAddKorzinka = () => {
-    dispatch(pushKorzinka({name: modalInfo.name ? modalInfo.name : modalInfo.title , text: modalInfo.text , price: cost, image : modalInfo.image, extra: extraActive}))
-    
+    const abc = {
+      id: v4(),
+      name: modalInfo.name ? modalInfo.name : modalInfo.title ,
+      text: modalInfo.text ,
+      price: cost, image : modalInfo.image, 
+      extra: extraActive  ,
+      size: categoryTitle == "Пицца" ? size : null ,
+      testo: categoryTitle == "Пицца" ? testo : null,
+      count: 1
+    }
+    dispatch(pushKorzinka(abc))
+    let localKorzinka = JSON.parse(localStorage.getItem('korzinka'));
+    if(localKorzinka){
+      localKorzinka.push(abc)
+      localStorage.setItem('korzinka' , JSON.stringify(localKorzinka))
+    }else{
+      localStorage.setItem('korzinka' , JSON.stringify([abc
+
+      ]))
+    }
+    setIsModalOpen(false)
   }
 
   useEffect(() => {

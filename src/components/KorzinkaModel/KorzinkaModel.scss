@@ -10,6 +10,7 @@
 }
 .my-modal-box{
     height: 100vh;
+    overflow-y: scroll;
     width: 420px;
     background-color: white;
     margin-right:0 ;
@@ -32,5 +33,127 @@
     i{
         font-size: 32px;
         opacity: 0.5;
+    }
+}
+
+.korzinka-item{
+    display: flex;
+    gap: 16px;
+    border: 1px solid #F0F0F0;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    padding: 16px;
+    .korzinka-left{
+        img{
+            width: 94px;
+            height: 94px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+    }
+    .korzinka-right{
+        h4{
+            //styleName: Desktop/Subtitle 2;
+            font-family: Inter;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 20px;
+            text-align: left;
+            margin-bottom: 8px;
+
+        }
+        p{
+            font-family: Inter;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 18px;
+            text-align: left;
+            margin-bottom: 12px;
+
+        }
+        .korzinka-right-box{
+            width: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .counter{
+                background-color: #FFEEE2;
+                color: #FF7010;
+                width: 92px;
+                height: 36px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0 8px;
+                border-radius: 6px;
+                .minus-btn{
+                    background-color: transparent;
+                    border: none;
+                    color: #FF7010;
+                }
+                .plus-btn{
+                    background-color: transparent;
+                    border: none;
+                    color: #FF7010;
+                }
+                .counter-display{
+                    //styleName: Desktop/Subtitle 2;
+                    font-family: Inter;
+                    font-size: 16px;
+                    font-weight: 600;
+                    line-height: 20px;
+                    text-align: center;
+                    background-color: transparent;
+                }
+            }
+            .korzinka-price{
+                color: #FF7010;
+                font-family: Inter;
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 20px;
+                text-align: right;
+
+            }
+        }
+    }
+}
+
+.my-modal-footer{
+    position: fixed;
+    bottom: 0px;
+    right: -2px;
+    border: 1px solid #F0F0F0;
+    div{
+        width: 420px;
+        padding: 12px 20px;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+    }
+    .modal-footer-h3{
+        //styleName: Desktop/H4;
+        font-family: Inter;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 28px;
+        text-align: left;
+        color: #FF7010;
+    }
+    .modal-booking-btn{
+        width: Hug (178px)px;
+        height: Hug (48px)px;
+        top: 885px;
+        left: 1482px;
+        padding: 13px 24px 13px 24px;
+        gap: 10px;
+        border-radius: 6px ;
+        opacity: 0px;
+        background-color: #FF7010;
+        color: white;
+        border: none;
+
     }
 }

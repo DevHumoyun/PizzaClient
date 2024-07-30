@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { getKombo } from '../../server/komboServer'
 import WatchProduct from '../watchProduct/WatchProduct1'
+import './Menu.scss'
 
 const Menu = () => {
 
@@ -49,9 +50,9 @@ const Menu = () => {
   return (
     <>
     <Navbar2 />
-    <div>
+    <div className='menu container'>
       <h3>{category?.title}</h3>
-      <div>
+      <div className='menu-box'>
         {
           category &&
           category.products.map(item => {

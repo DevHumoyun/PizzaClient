@@ -17,9 +17,11 @@ import { setUser } from './redux/reduxStore/authSlice';
 import { useEffect } from 'react';
 import Menu from './components/Menu/Menu';
 import Korzinka2 from './pages/Korzinka2/Korzinka2';
+import { setKorzinka, setPriceKorzinka } from './redux/reduxStore/korzinkaSlice';
 
 function App() {
-  const {user } = useSelector(state => state.authSlice)
+  const {user } = useSelector(state => state.authSlice);
+  const {korzinka } = useSelector(state => state.korzinkaSlice)
   const navigate = useNavigate();
   const dispatch = useDispatch()
   
@@ -34,6 +36,12 @@ function App() {
     }
   }
   useEffect(() => {
+    dispatch(setPriceKorzinka())
+    
+  } ,[korzinka])
+
+  useEffect(() => {
+    dispatch(setKorzinka())
     handleGetUser()
   } ,[])
   return (
