@@ -103,7 +103,8 @@ const WatchProduct = ({setIsModalOpen , isModalOpen , modalInfo, categoryTitle})
       extra: extraActive  ,
       size: categoryTitle == "Пицца" ? size : null ,
       testo: categoryTitle == "Пицца" ? testo : null,
-      count: 1
+      count: 1,
+      _id:modalInfo._id
     }
     dispatch(pushKorzinka(abc))
     let localKorzinka = JSON.parse(localStorage.getItem('korzinka'));

@@ -43,7 +43,7 @@ const Navbar2 = () => {
 
   return (
     <div>
-      <div className="nav-main nav-main2">
+      <div className=" nav-main2">
      <nav>
       <div className="container">
         <div className="nav-top">

@@ -118,7 +118,7 @@ const Home = () => {
             <div className='home'>
                 <div className="categories">
                             <div className='category-item'>
-                                <img src={FireImage} alt="" />
+                                <img className='category-item-img' src={FireImage} alt="" />
                                 <h4>Акции</h4>
                             </div>
                             <div onClick={() => handleMenu('kombo')} className='category-item'>
@@ -212,9 +212,8 @@ const Home = () => {
 
                 
                 <WatchProduct isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} categoryTitle={categoryTitle} modalInfo={modalInfo} />
-                {/* <Footer/> */}
-
                 </div>
+                <Footer/>
         </>
 
   )

@@ -1,45 +1,71 @@
-/* .footer{
+.footer2{
     margin-top: 100px;
     display: flex;
     height: 262px;
     padding: 32px 0;
     justify-content: space-between;
     font-family: "Inter", sans-serif;
+  
 }
 
-.footer .left h3 {
+.footer{    
+    background-color: white;
+}
+.footer2 .left h3 {
     margin-top: -20px;
 }
 
-.footer .left h3 img{
+.footer2 .left h3 img{
     width: 40px;
     height: 40px;
     margin-top: 10px;
 }
 
-.footer .left h3 {
+.footer2 .left h3 {
     display: flex;
 }
 
-.footer .left .bottom {
+.footer2 .left .bottom {
     margin-top: 136px;
 }
 
-.footer .left h4{
+.footer2 .left h4{
     font-size: 20px;
     font-weight: 600;
     line-height: 28px;
     text-align: left;
 }
-.footer .left p{
+.footer2 .left p{
     padding-top: 22px;
     font-size: 16px;
     font-weight: 400;
     line-height: 22px;
     text-align: left;
 }
-.footer .left p .icon{ 
-    height: 20px;
+.icon{ 
+height: 20px;
     width: 20px;
     color: #FF7010;
-} */
+}
+
+@media screen and (max-width: 394px) {
+    .footer2{
+        display: block;
+    }
+    .footer2 .left p{
+        padding: 0;
+        margin-bottom: 16px;
+    }
+    .footer2 .left h3 {
+        display: flex !important;
+        align-items: center !important;
+        gap: 12px;
+    }
+    .footer2 .left h3  p{
+        padding: 0;
+        margin: 0;
+    }
+    .footer2 .left .bottom {
+        margin-top: 24px;
+    }
+}

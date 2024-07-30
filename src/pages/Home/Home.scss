@@ -132,3 +132,33 @@
     display: flex;
     gap: 30px;
 }
+
+@media screen and (max-width: 394px) {
+    
+    .home{
+        max-width: 350px;
+        padding-top: 20px;
+        .categories{
+            .category-item{
+                width: 99px;
+                height: 40px;
+                padding: 11px ;
+                display: flex;
+                gap: 8px;
+                align-items: center;
+                h4{
+                    margin: 0;
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 18px;
+                    text-align: center;
+                }
+                img{
+                    width: 24px !important;
+                    max-height: 24px !important;
+                }
+                
+            }
+        }
+    }
+}

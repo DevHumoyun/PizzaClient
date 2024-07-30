@@ -18,6 +18,7 @@ import { useEffect } from 'react';
 import Menu from './components/Menu/Menu';
 import Korzinka2 from './pages/Korzinka2/Korzinka2';
 import { setKorzinka, setPriceKorzinka } from './redux/reduxStore/korzinkaSlice';
+import Process from './pages/Process/Process';
 
 function App() {
   const {user } = useSelector(state => state.authSlice);
@@ -48,7 +49,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path='/*' element={<Home />} />
-        
+        <Route path='/process' element={<Process />} />
         <Route path='/menu/' element={<Menu />} />
         <Route path='/profile/*' element={<Profile />} />
         <Route path='/korzinka2' element={<Korzinka2/>} />

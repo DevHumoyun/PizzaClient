@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import Navbar2 from '../../components/Navbar2/Navbar2';
+import Navbar3 from '../../components/Navbar3/Navbar3';
 import "./Korzinka2.css";
 import planeImg from '../../img/Group 92.png';
 import { useDispatch, useSelector } from 'react-redux';
 import { minusProduct, plustProduct, pushKorzinka } from '../../redux/reduxStore/korzinkaSlice';
 import { getOneCategory } from '../../server/categoryServer';
 import { v4 } from 'uuid';
+import  Footer  from '../../components/Footer/Footer';
+import { postBooking } from '../../server/bookingServer';
+import { useNavigate } from 'react-router-dom';
 
 const Korzinka2 = () => {
   const dispatch = useDispatch()
@@ -13,7 +16,19 @@ const Korzinka2 = () => {
   const {korzinka , korzinkaPrice} = useSelector(state => state.korzinkaSlice);
   const [extrProducts, setExtraProducts ] = useState([]);
   const [souses, setSouses ] = useState([]);
-  const [manageTime , setManageTime ] = useState('По времени')
+  const [manageTime , setManageTime ] = useState('По времени');
+  const [manageSdachi , setManageSdachi ] = useState('Без сдачи');
+  const [manageOplata , setManageOplata ] = useState('Cash');
+  const [manageComment , setMannageComment ] = useState(null);
+  const [addressDetails , setAddressDetails] = useState({
+    dom :'',
+    kvartira: '',
+    podyezd : '',
+    domofon: '',
+    etaj : ''
+  });
+  
+  const navigate = useNavigate()
 
   const handleCategoryProducts = async () => {
     try {
@@ -36,7 +51,8 @@ const Korzinka2 = () => {
       text: modalInfo.text ,
       price: modalInfo.price,
       image : modalInfo.image, 
-      count: 1
+      count: 1,
+      _id:modalInfo._id
     }
     dispatch(pushKorzinka(abc))
     let localKorzinka = JSON.parse(localStorage.getItem('korzinka'));
@@ -53,13 +69,53 @@ const Korzinka2 = () => {
     setManageTime(event.target.value);
     
   };
+  const handleChangeSdachi = (event) => {
+    setManageSdachi(event.target.value);
+  };
+
+  const handleChangeOplata = (event) => {
+    setManageOplata(event.target.value);
+  }
+  const handleChangeComment = (event ) => {
+    setMannageComment(event.target.value)
+  }
+
+  const handleChangeAddresdetails = (event) => {
+    let abc = addressDetails
+    abc[event.target.name] = event.target.value
+    setAddressDetails(abc)
+  }
+
+  const handleCreateBooking = async () => {
+    try {
+      
+      const value = {
+        orderId: Date.now(),
+        address: {...user.address, details: addressDetails},
+        price: korzinkaPrice,
+        payType: manageOplata,
+        products: korzinka,
+        consumerId: user._id,
+        comment: manageComment,
+        timeManagement: manageTime
+      }
+
+      const data = await postBooking(value);
+      navigate('/process')
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   useEffect(() => {
-    handleCategoryProducts()
+    handleCategoryProducts();
+    
   } ,[])
   return (
+    <>
+          <Navbar3/>
     <div className='container2'>
-        <Navbar2/>
         <div className="zakaz">
           <h2>Ваш заказ</h2>
           {
@@ -133,7 +189,7 @@ const Korzinka2 = () => {
             <h3> О вас</h3>
             <div className="info-div">
               <div className="info-item">
-                <p>Адрес*</p>
+                <p>Имя*</p>
                 <input type="text" defaultValue={user?.name}/>
               </div>
               <div className="info-item">
@@ -162,23 +218,23 @@ const Korzinka2 = () => {
             <div className="dostavka-item">
               <div className="input">
                 <p>Дом</p>
-                <input type="text" placeholder='1а'/>
+                <input onChange={handleChangeAddresdetails} name='dom' type="text" placeholder='1а'/>
               </div>
               <div className="input">
                 <p>Подъезд</p>
-                <input type="text" placeholder='1'/>
+                <input onChange={handleChangeAddresdetails} name='podyezd' type="text" placeholder='1'/>
               </div>
               <div className="input">
                 <p>Этаж</p>
-                <input type="text" placeholder='2'/>
+                <input onChange={handleChangeAddresdetails} name='etaj' type="text" placeholder='2'/>
               </div>
               <div className="input">
                 <p>Квартира</p>
-                <input type="text" placeholder='3'/>
+                <input onChange={handleChangeAddresdetails} name='kvartira' type="text" placeholder='3'/>
               </div>
               <div className="input">
                 <p>Домофон</p>
-                <input type="text" placeholder='0000'/>
+                <input onChange={handleChangeAddresdetails} name='domofon' type="text" placeholder='0000'/>
               </div>
             </div>
             <p>Когда выполнить заказ?</p>
@@ -198,17 +254,17 @@ const Korzinka2 = () => {
             <div className="dostavkaa-item">
               <h5>
                 <label htmlFor="nalichnimi">
-                  <input name='oplata' type="radio" id='nalichnimi' /> Наличными
+                  <input onChange={handleChangeOplata} value={'Cash'}  name='oplata' type="radio" id='nalichnimi' /> Наличными
                 </label>
               </h5>
               <h5>
               <label htmlFor="kartoy">
-                  <input name='oplata' type="radio" id='kartoy' /> Картой
+                  <input onChange={handleChangeOplata} value={'Card'} name='oplata' type="radio" id='kartoy' /> Картой
                 </label>
               </h5>
               <h5>
                 <label htmlFor="applepay">
-                  <input name='oplata' type="radio" id='applepay' /> Apple Pay
+                  <input onChange={handleChangeOplata} value={'Applepay'} name='oplata' type="radio" id='applepay' /> Apple Pay
                 </label>
               </h5>
             </div>
@@ -217,28 +273,34 @@ const Korzinka2 = () => {
             <div className="dostavkaa-item">
               <h5>
                 <label htmlFor="nosdacha">
-                  <input name='sdacha' type="radio" id='nosdacha' />Без сдачи
+                  <input checked onChange={handleChangeSdachi} name='sdacha' value={'Без сдачи'} type="radio" id='nosdacha' />Без сдачи
                 </label>
               </h5>
               <h5>
                 <label htmlFor="sdacha">
-                  <input name='sdacha' id='sdacha' type="radio" />Сдача с
+                  <input onChange={handleChangeSdachi} name='sdacha' value={'Сдача с'} id='sdacha' type="radio" />Сдача с
                 </label>
               </h5>
               
-              <h5><input type="text" placeholder='0 ₽'/></h5>
+              {
+                manageSdachi != "Без сдачи" &&
+                <h5><input className='sdachi-inp' type="text" defaultValue={'0'}/>₽</h5>
+              }
             </div>
             <hr />
             <h3>Комментарий</h3>
-            <textarea className='textarea-zakaz' placeholder='Есть уточнения?' name="Есть уточнения?" id="" rows={10} cols={145}></textarea>
+            <textarea onChange={handleChangeComment} className='textarea-zakaz' placeholder='Есть уточнения?' name="Есть уточнения?" id="" rows={10} cols={145}></textarea>
             <hr />
             <div className="dostavka-item">
               <h3 className='last'>Итого: {korzinkaPrice} ₽</h3>
-              <button>Оформить заказ</button>
+              <button onClick={handleCreateBooking}>Оформить заказ</button>
             </div>
           </div>
         </div>
+
     </div>
+        <Footer />
+    </>
   )
 }
 

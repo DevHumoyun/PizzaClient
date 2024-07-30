@@ -1,0 +1,44 @@
+.process{
+    
+    .process-box{
+        width: 380px;
+        margin: auto;
+        margin-top: 182px;
+        img{
+            display: block;
+            margin: auto;
+            margin-bottom: 48px;
+        }
+        h3{
+            //styleName: Desktop/H3;
+            font-family: Inter;
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 32px;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        p{
+            //styleName: Desktop/Normal;
+            font-family: SF Pro Text;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 22px;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        button{
+            background-color: #FF7010;
+            color: white;
+            border: none;
+            width: Hug (196px)px;
+            height: Hug (48px)px;
+            padding: 13px 32px 13px 32px;
+            gap: 10px;
+            border-radius: 6px;
+            display: block;
+            margin: auto;
+
+        }
+    }
+}

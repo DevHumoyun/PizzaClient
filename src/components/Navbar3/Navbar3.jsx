@@ -50,7 +50,7 @@ const Navbar3 = () => {
     handleGetCategories()
   } ,[])
   return (
-   <div className="nav-main">
+   <div className="nav-main3">
      <nav>
       <div className="container">
         <div className="nav-top">

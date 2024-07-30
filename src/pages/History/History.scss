@@ -1,0 +1,159 @@
+.history{
+    .unable{
+        display: none !important;
+    }
+    max-width: 850px;
+    margin: auto;
+    .history-box{
+        margin-bottom: 20px;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        .history-box-header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .demo-history-item{
+                display: flex;
+                gap: 16px;
+            }
+            .history-header-items{
+                .color{
+                    display: block;
+                    background-color: red;
+                    width: 4px;
+                    height: 44px;
+                    border-radius: 6px;
+                }
+                h4{
+                    //styleName: Desktop/Mini;
+                    font-family: Inter;
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 18px;
+                    text-align: left;
+                    color: #A5A5A5;
+                }
+                div{
+                    display: flex;
+                    gap: 8px;
+                    h3{
+                        //styleName: Desktop/Normal;
+                        font-size: 16px;
+                        font-weight: 400;
+                        line-height: 22px;
+                        text-align: left;
+                        color: #191919;
+                    }
+                    p.date{
+                        
+                        font-size: 14px;
+                        font-weight: 400;
+                        line-height: 20px;
+                        text-align: left;
+                        color: #A5A5A5;
+                    }
+                }
+            }
+            i{
+                color: #FF7010;
+                font-size: 16px;
+            }
+        }
+    }
+    .history-body{
+        display: flex;
+        justify-content: space-between;
+        .history-address{
+            h3{
+                //styleName: Desktop/Normal;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 22px;
+                text-align: left;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                width: 450px;
+            }
+        }
+        .history-images{
+            img{
+                width: 40px;
+                height: 40px;
+                
+            }
+        }
+    }
+    .history-body2{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 12px;
+        div{
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            img{
+                width: 40px;
+                height: 40px;
+            }
+            h3.history-product-title{
+                //styleName: Desktop/Subtitle 2;
+                font-family: Inter;
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 20px;
+                text-align: left;
+
+            }
+            p.history-extras{
+                //styleName: Desktop/Mini;
+                font-family: Inter;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 18px;
+                text-align: left;
+
+            }
+            .product-count{
+                //styleName: Desktop/Subtitle 2;
+                font-family: Inter;
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 20px;
+                text-align: center;
+                background-color: #FFEEE2;
+                color: #FF7010;
+                padding: 10px 20px;
+                border-radius: 6px;
+            }
+            p.history-price{
+                //styleName: Desktop/Subtitle 2;
+                font-family: Inter;
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 20px;
+                text-align: left;
+                color: #FF7010;
+
+            }
+        }
+
+    }
+    button.history-retry{
+        width: 100%;
+        background-color: white;
+        color: #FF7010  ;
+        border: none;
+    }
+    hr{
+        background-color: #F0F0F0;
+        color: #F0F0F0;
+        height: 1px;
+    }
+}
+
+.not-flex{
+    display: block !important;
+}

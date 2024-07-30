@@ -4,7 +4,7 @@
 } 
 
 .zakaz{
-    margin-top: 80px !important;
+    margin-top: 40px !important;
     margin: 0 auto;
 }
 .zakaz h2{
@@ -265,4 +265,11 @@
     max-width: 850px;
     padding: 13px 0 0 16px;
     border: none;
+}
+.sdachi-inp{
+    border-radius: 6px;
+    height: 48px;
+    width: 160px;
+    border: none;
+    padding-left: 10px;
 }
