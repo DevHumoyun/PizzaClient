@@ -5,6 +5,7 @@ import planeImg from '../../img/Group 92.png';
 import { useDispatch, useSelector } from 'react-redux';
 import { minusProduct, plustProduct, pushKorzinka } from '../../redux/reduxStore/korzinkaSlice';
 import { getOneCategory } from '../../server/categoryServer';
+import { v4 } from 'uuid';
 
 const Korzinka2 = () => {
   const dispatch = useDispatch()
@@ -32,8 +33,6 @@ const Korzinka2 = () => {
       text: modalInfo.text ,
       price: modalInfo.price,
       image : modalInfo.image, 
-      size: categoryTitle == "Пицца" ? size : null ,
-      testo: categoryTitle == "Пицца" ? testo : null,
       count: 1
     }
     dispatch(pushKorzinka(abc))
@@ -46,7 +45,6 @@ const Korzinka2 = () => {
 
       ]))
     }
-    setIsModalOpen(false)
   }
 
   useEffect(() => {
@@ -97,7 +95,7 @@ const Korzinka2 = () => {
                         <img src={item.image.url} alt="image" />
                         <h4 className="title">{item.name}</h4>
                         <p>{item.portion}</p>
-                        <button className='price-btn'>179 ₽</button>
+                        <button onClick={() => handleAddKorzinka(item)} className='price-btn'>179 ₽</button>
                       </div>
                     )
                   })
@@ -114,7 +112,7 @@ const Korzinka2 = () => {
                         <div>
                           <h4 className="title">{item.name}</h4>
                           <p>{item.portion}</p>
-                          <button className='price-btn'>179 ₽</button>
+                          <button onClick={() => handleAddKorzinka(item)} className='price-btn'>179 ₽</button>
                         </div>
                       </div>
                     )
