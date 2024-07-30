@@ -3,12 +3,17 @@ import { Button, Modal } from 'antd';
 import './KorzinkaModel.scss'
 import { useDispatch, useSelector } from 'react-redux';
 import { minusProduct, plustProduct } from '../../redux/reduxStore/korzinkaSlice';
+import { useNavigate } from 'react-router-dom';
 
 const KorzinkaModel = ({isModalOpen, setIsModalOpen}) => {
     const {korzinka , korzinkaPrice} = useSelector(state => state.korzinkaSlice);
 
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
+    const handleGoBooking = () => {
+        navigate('/korzinka2')
+    }
     
   return (
     <div >
@@ -50,7 +55,7 @@ const KorzinkaModel = ({isModalOpen, setIsModalOpen}) => {
                 <div className="my-modal-footer">
                     <div>
                     <h3 className='modal-footer-h3'>Итого: {korzinkaPrice}  ₽</h3>
-                    <button className='modal-booking-btn'>Оформить заказ</button>
+                    <button onClick={handleGoBooking} className='modal-booking-btn'>Оформить заказ</button>
                     </div>
                 </div>
             </div>

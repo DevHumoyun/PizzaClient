@@ -1,0 +1,268 @@
+.container2{
+    width: 850px;
+    margin: 0 auto ;
+} 
+
+.zakaz{
+    margin-top: 80px !important;
+    margin: 0 auto;
+}
+.zakaz h2{
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 48px;
+    text-align: left;
+    margin-top: 40px;
+    margin-bottom: 24px;
+}
+.zakaz .content{
+    display: flex;
+    height: 152px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    border: 1px solid #F0F0F0;
+    border-radius: 12px;
+    background-color: #FFFFFF;
+    margin-bottom: 16px;
+}
+.zakaz .content div.content-box{
+    display: flex;
+    align-items: center;
+}
+.zakaz .content img{
+    width: 120px;
+    height: 120px;
+    border: none;
+}
+.zakaz .content .text h4{
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+    text-align: left;
+    padding-bottom: 8px;
+}
+.zakaz .content .text h5{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+}
+.zakaz .content .count{
+    display: flex;
+    max-width: 92px !important;
+    background-color: #FFEEE2;
+    border-radius: 6px;
+    align-items: center;
+}
+.zakaz .content .count span{
+    color: #ff7010;
+}
+.zakaz .content .count button{
+    /* margin-left: 294px; */
+    padding: 8px 16px;
+    border: none;
+    background-color: #FFEEE2;
+    border-radius: 6px;
+    color: #ff7010;
+}
+.zakaz .content h3{
+    margin-left: 40px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+    text-align: right;
+    color: #ff7010;
+}
+
+.promokod{
+    margin-top: 16px;
+    /* height: 80px; */
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    padding: 16px 24px;
+    border: 1px solid #F0F0F0;
+    background-color: #ffffff;
+}
+.promokod .item input{
+    /* height: 48px; */
+    padding: 13px 0 13px 16px;
+    border: 1px solid #F0F0F0;
+}
+.promokod .item button{
+    border: none;
+    background-color: #ff7010;
+    border-radius: 6px;
+    padding: 15px 16px;
+}
+.promokod .item button img{
+    width: 17.45px;
+    height: 14.84px;
+}
+.promokod h3{
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+    text-align: right;
+    color: #ff7010;
+    padding-top: 10px;
+}
+
+.zakaz-carousel .flex{
+    display: flex;
+    justify-content: space-between;
+}
+.zakaz-carousel .flex .flex-item {
+    margin-bottom: 16px;
+    
+    text-align: center;
+    border: 1px solid #F0F0F0;
+    background-color: #FFFFFF;
+    border-radius: 6px;
+    
+}
+.zakaz-carousel .flex .flex-item div{
+    padding: 16px;
+}
+.zakaz-carousel .flex .flex-item img{
+    object-fit: cover;
+    width: 190px;
+    height: 190px;
+    width: auto;
+}
+.zakaz-carousel .flex .flex-item title{
+    max-width: 130px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 24px;
+    text-align: center;
+    color: #191919;
+}
+.zakaz-carousel .flex .flex-item p{
+
+}
+.zakaz-carousel .flex .flex-item .price-btn{
+    display: block;
+    margin: auto;
+    padding: 10px 58px;
+    border: none;
+    border-radius: 6px;
+    background-color: #ff7010;
+    color: #FFFFFF;
+}
+
+.info h3{
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 32px;
+    text-align: left;
+    color: #191919;
+    margin-top: 30px;
+    margin-bottom: 16px;
+}
+.info .info-div {
+    display: flex;
+    justify-content: space-between;
+}
+.info .info-div .info-item p{
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: left;
+    color: #a5a5a5;
+}
+.info .info-div .info-item input{
+    width: 300px;
+    padding: 13px 16px;
+    border: 1px solid #F0F0F0;
+    border-radius: 6px;
+}
+
+.dostavka .dostavka-item {
+    display: flex;
+    justify-content: space-between;
+}
+.dostavka .dostavka-item .btn {
+    display: flex;
+}
+.dostavka .dostavka-item .btn .btn1 {
+    width: 175px;
+    padding: 13px 0;
+}
+.dostavka .dostavka-item .btn .btn1:hover {
+    background-color: #ff7010;
+    color: #F0F0F0;
+    border-radius: 6px;
+}
+.dostavka h6{
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: left;
+    color: #a5a5a5;
+}
+.dostavka .ulisa{
+    width: 100%;
+    padding: 13px 16px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    color: #a5a5a5;
+    border: 1px solid #F0F0F0;
+    border-radius: 6px;
+}
+.dostavka .dostavka-item .input p{
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: left;
+    color: #a5a5a5;
+    margin-top: 16px;
+    /* padding: 13px 16px; */
+}
+.dostavka .dostavka-item .input input{
+    width: 100%;
+    padding: 13px 16px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    color: #a5a5a5;
+    border: 1px solid #F0F0F0;
+    border-radius: 6px;
+    padding: 13px 16px;
+}
+.dostavka .dostavkaa-item{
+    display: flex;
+}
+.dostavka p{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    color: #a5a5a5;
+    margin-top: 16px;
+}
+.dostavka .dostavkaa-item h5{
+    margin-right: 24px;
+}
+
+.dostavka .dostavka-item .last{
+    color: #ff7010;
+}
+.dostavka .dostavka-item button {
+    padding: 13px 24px;
+    border: none;
+    background-color: #ff7010;
+    color: #FFFFFF;
+    border-radius: 6px;
+    margin-bottom: 60px;
+}
+
+.textarea-zakaz{
+    max-width: 850px;
+    padding: 13px 0 0 16px;
+    border: none;
+}
