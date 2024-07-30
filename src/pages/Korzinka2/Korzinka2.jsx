@@ -13,6 +13,8 @@ const Korzinka2 = () => {
   const {korzinka , korzinkaPrice} = useSelector(state => state.korzinkaSlice);
   const [extrProducts, setExtraProducts ] = useState([]);
   const [souses, setSouses ] = useState([]);
+  const [manageTime , setManageTime ] = useState('По времени')
+
   const handleCategoryProducts = async () => {
     try {
       const data = await getOneCategory('669bc2d1dd5ed05253fee32a')
@@ -26,6 +28,7 @@ const Korzinka2 = () => {
     }
   }
 
+  
   const handleAddKorzinka = (modalInfo) => {
     const abc = {
       id: v4(),
@@ -46,6 +49,10 @@ const Korzinka2 = () => {
       ]))
     }
   }
+  const handleOptionChange = (event) => {
+    setManageTime(event.target.value);
+    
+  };
 
   useEffect(() => {
     handleCategoryProducts()
@@ -93,9 +100,11 @@ const Korzinka2 = () => {
                     return(
                       <div className="flex-item">
                         <img src={item.image.url} alt="image" />
-                        <h4 className="title">{item.name}</h4>
-                        <p>{item.portion}</p>
-                        <button onClick={() => handleAddKorzinka(item)} className='price-btn'>179 ₽</button>
+                        <div>
+                          <h4 className="title">{item.name}</h4>
+                          <p>{item.portion}</p>
+                          <button onClick={() => handleAddKorzinka(item)} className='price-btn'>{item.price} ₽</button>
+                        </div>
                       </div>
                     )
                   })
@@ -112,7 +121,7 @@ const Korzinka2 = () => {
                         <div>
                           <h4 className="title">{item.name}</h4>
                           <p>{item.portion}</p>
-                          <button onClick={() => handleAddKorzinka(item)} className='price-btn'>179 ₽</button>
+                          <button onClick={() => handleAddKorzinka(item)} className='price-btn'>{item.price} ₽</button>
                         </div>
                       </div>
                     )
@@ -174,22 +183,50 @@ const Korzinka2 = () => {
             </div>
             <p>Когда выполнить заказ?</p>
             <div className="dostavkaa-item">
-              <h5><input type="radio" /> Как можно скорее</h5>
-              <h5><input type="radio" /> По времени</h5>
+              <h5><label htmlFor="skorey">
+                <input  onChange={handleOptionChange} name='zakaz1' value={'Как можно скорее'} id='skorey' type="radio" />
+                Как можно скорее
+                </label></h5>
+              <h5>
+                <label htmlFor="vremeni">
+                <input checked onChange={handleOptionChange} name='zakaz1' value={'По времени'} id='vremeni' type="radio" /> По времени
+                </label>
+              </h5>
             </div>
             <hr />
             <h3>Оплата</h3>
             <div className="dostavkaa-item">
-              <h5><input type="radio" /> Наличными</h5>
-              <h5><input type="radio" /> Картой</h5>
-              <h5><input type="radio" /> Apple Pay</h5>
+              <h5>
+                <label htmlFor="nalichnimi">
+                  <input name='oplata' type="radio" id='nalichnimi' /> Наличными
+                </label>
+              </h5>
+              <h5>
+              <label htmlFor="kartoy">
+                  <input name='oplata' type="radio" id='kartoy' /> Картой
+                </label>
+              </h5>
+              <h5>
+                <label htmlFor="applepay">
+                  <input name='oplata' type="radio" id='applepay' /> Apple Pay
+                </label>
+              </h5>
             </div>
             <hr />
             <h3>Сдача</h3>
             <div className="dostavkaa-item">
-              <h5><input type="radio" />Без сдачи</h5>
-              <h5><input type="radio" />Сдача с</h5>
-              <h5><input type="text" placeholder='0             ₽'/></h5>
+              <h5>
+                <label htmlFor="nosdacha">
+                  <input name='sdacha' type="radio" id='nosdacha' />Без сдачи
+                </label>
+              </h5>
+              <h5>
+                <label htmlFor="sdacha">
+                  <input name='sdacha' id='sdacha' type="radio" />Сдача с
+                </label>
+              </h5>
+              
+              <h5><input type="text" placeholder='0 ₽'/></h5>
             </div>
             <hr />
             <h3>Комментарий</h3>
